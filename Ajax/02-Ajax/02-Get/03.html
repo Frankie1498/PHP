@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>AJAX</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			$('#process').click(function () {
+				var key  = document.getElementById('textbox').value;
+				var url = 'files/course-1.php';
+				var dataSend = {'key' : key};
+				$.get(url,dataSend,function (data,status) {
+					var result = $.parseJSON(data);
+					console.log(result);
+					$('#content').html(result.id+'-'+result.name);//gắn data vào thẻ div id content
+				});
+			});
+		});
+	
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="title">Ajax - Load</div>
+		<div class="list">  
+			<h3>jQuery.get (url [,data] [,success(data, textStatus)[, dataType]])</h3>
+			<input type="text" id="textbox">
+			<input type="button" class="button" name="process" id="process" value ="Process"/>
+			<div id="content">Hello</div>
+		</div>
+    </div>
+</body>
+</html>

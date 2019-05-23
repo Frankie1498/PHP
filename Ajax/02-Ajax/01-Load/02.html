@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var url     = 'files/data.php';
+            var data    = {'id'     :   5,'name'  :   'PHP'};
+
+            $('#process').click(function () {
+                $('#content-load').load(url,data);
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="title">Ajax-Load</div>
+        <div class="list">
+            <h3>.load(url [,data] [,complete(responeText,textStatus)])</h3>
+            <input type="button" name="process" id="process" value="Process">
+            <div id="content-load">Hello</div>
+        </div>
+    </div>
+
+</body>
+</html>
